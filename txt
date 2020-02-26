@@ -1,0 +1,64 @@
+
+* 포인트만
+
+---------------------------------------------------------------------------------------------
+저희는 SPA 방식으로 개발하죠.
+SPA는 Single Page Application의 약어로 말 그대로 페이지가 하나인 애플리케이션이라는 의미입니다.
+(서버에서 제공하는 페이지는 하나이지만, 로딩을 한 번 하고 나면 웹 브라우저에서 나머지 페이지들을 정의해 줍니다.
+페이지에 들어온 후에 다른 페이지로 이동하기 위해서 서버에 새로운 페이지를 요청하는 것이 아니라,
+새 페이지에서 필요한 데이터만 받아 와 그에 따라 웹 브라우저가 다른 종류의 뷰를 만들어 주는 것이다.) -> 축약
+이 역할을 하는 하나의 페이지가 index.html입니다.
+
+- public/index.html
+public폴더안에 index.html 파일을 생성하고
+이 페이지는 브라우저 화면상으로 리액트 컴포넌트를 보여주는 역할을 합니다.
+이 페이지에 id wrap을 가진 div를 추가하면
+실질적으로 브라우저상으로 보여지는 페이지 소스가 이 wrap div에 들어가게 됩니다.
+
+- src/index.js
+ReactDOM.render함수를 사용해서 Root컴포넌트를 렌더링 해준 후,
+
+ReactDOM.render(<Root />, document.getElementById('wrap'));
+=> 첫번째 파라미터 Root는 렌더링할 결과물
+두번째 파라미터는 이 컴포넌트를 id wrap인 요소를 가진 DOM을 찾아 그곳에 그려주겠다(렌더링)는 것입니다.
+즉,index.html에 렌더링하는 것이죠.
+
+- client/Root.js
+라우팅을 위해 BrowserRouter컴포넌트를 사용합니다.
+그리고 그 안에 App컴포넌트를 불러옵니다.
+
+- shared/App.js
+App 컴포넌트에서는 웹 브라우저의 주소에 따라 어떤 컴포넌트를 보여줄 지 정의합니다.
+라우팅을 진행하기 위해 Route,Switch컴포넌트를 불러옵니다.
+먼저 Switch로 모든 Route컴포넌트를 묶어줘야 합니다.
+Switch컴포넌트를 사용하면 그 하위에 있는 Route컴포넌트 중에 제일 첫번째로 매치되는 컴포넌트만 보여주고,
+그 이후에 나오는 컴포넌트들은 매치가 되더라도 무시를 하기 때문에
+Route컴포넌트를 나열하는 순서가 중요합니다.
+이를 막기 위해서 제일 처음 TopPage를 보여주는 라우트에 exact prop을 넣어주어야 합니다.
+exact는 URL 경로 값이 Route의 path 값과 완벽히 전체가 일치해야 매치되는 것으로 처리를 해줍니다.
+그리고 제일 마지막으로 매치가 되지 않을 시 404에러페이지를 띄우는 컴포넌트를 추가합니다.
+
+- pages/
+이 폴더 안에는 실제로 보여질 페이지들의 컴포넌트들을 생성합니다.
+상단에 Layout컴포넌트를 import하는데,페이지 공통레이아웃을 형성하는 이 컴포넌트안에
+실제 코드들을 넣습니다.
+그리고 이 pages폴더 안에는 index.js파일을 생성해서 각각의 페이지 컴포넌트들을 어떤 네임으로 export시키겠다
+선언해주고 실제로 다른 컴포넌트에서 간편히 재사용 할 수 있도록 도와줍니다.
+
+- components/company/Layout.js
+실제 페이지 컴포넌트에서 감싸주었던 레이아웃 컴포넌트입니다.
+이 컴포넌트의 역할은 레이아웃을 구축하는 세부적인 컴포넌트를 불러들여 구성하는 것인데,
+gnb와 footer컴포넌트를 불러오고 파라미터로 children을 불러와 페이지들을 렌더링한다.
+
+(컴포넌트의 props에서 타입을 체크하고싶다면 특별한 propTypes 속성을 할당할 수 있습니다.
+prop에 유효하지않은 값이 전달되면 자바스크립트 콘솔에 경고가 노출됩니다.
+defaultProps 속성을 사용하면 props 의 기본 값을 할당할 수 있습니다.)
+
+=====================================
+const EncarServiceStatic = ({ text, message }) => (
+	<img className={cx('img_servicepage')} url={text} alt={message} />
+);
+<img className={cx('img_servicepage')} src={src} alt={alt} />
+<EncarServiceStatic src="/static/imgaes/company/img_service.jpg" alt="대체 텍스트" />
+
+<Image className={cx('img_servicepage')} source = {require('./image/img_service.jpg')} alt={alt} />

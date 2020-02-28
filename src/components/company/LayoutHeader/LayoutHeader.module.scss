@@ -1,0 +1,29 @@
+.noscroll{overflow:hidden;height:100%}
+.header {overflow:hidden;position:fixed;top:0;right:0;left:0;z-index:200;height:46px;border-bottom:1px solid #c2bcb6;background:#fff;text-align:center;
+  transition:height .3s .3s cubic-bezier(0.52, 0.16, 0.24, 1);
+  &.active {height:100%;background:#fff;
+    transition:height .3s cubic-bezier(0.52, 0.16, 0.24, 1);
+  }
+}
+.gnb_pc {display:none}
+.btn_menu {position:absolute;top:0;left:0;width:46px;height:46px;
+  .line_top,
+  .line_middle,
+  .line_bottom {display:block;overflow:hidden;position:absolute;top:28px;left:13px;width:21px;height:1px;background:#333;text-indent:-5000em;border-radius:0.5px;
+    transition:top 0.3s cubic-bezier(0.3, 1, 0.5, 1) 0.2s, opacity 0s ease 0.3s, transform 0.3s cubic-bezier(0.4, 1, 0.6, 1);
+  }
+  .line_top {top:16px}
+  .line_middle {top:23px}
+  .line_bottom {top:30px}
+  &.active {
+    .line_top,
+    .line_middle,
+    .line_bottom {top:23px;
+      transition:top 0.3s cubic-bezier(0.3, 1, 0.5, 1), opacity 0s ease 0.2s, transform 0.3s cubic-bezier(0.4, 1, 0.6, 1) 0.2s;
+    }
+    .line_top {transform:rotate(45deg)}
+    .line_middle {opacity:0}
+    .line_bottom {transform:rotate(-45deg)}
+  }
+}
+.logo{line-height:46px}

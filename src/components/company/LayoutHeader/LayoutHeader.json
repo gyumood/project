@@ -1,0 +1,55 @@
+[
+  {
+    "text": "회사소개",
+    "url": "/company/about-encar",
+    "layoutType": "about",
+    "sub": [
+      {
+        "text": "우리 회사는요",
+        "url": "/company/about-encar"
+      },
+      {
+        "text": "서비스 소개",
+        "url": "/company/encar-service"
+      },
+      {
+        "text": "Contact Us",
+        "url": "/company/contact-us"
+      }
+    ]
+  },
+  {
+    "text": "홍보",
+    "url": "/company/encar-news",
+    "layoutType": "news",
+    "sub": [
+      {
+        "text": "엔카소식",
+        "url": "/company/encar-news"
+      },
+      {
+        "text": "언론기사",
+        "url": "/company/encar-media"
+      },
+      {
+        "text": "브랜드영상",
+        "url": "/company/encar-video"
+      }
+    ]
+  },
+  {
+    "text": "채용",
+    "url": "/company/about-encar",
+    "layoutType": "recruit",
+    "sub": [
+      {
+        "text": "인재채용",
+        "url": "/company/recruit-person"
+      },
+      {
+        "text": "우리의 혜택",
+        "url": "/company/recruit-benefit"
+      }
+    ]
+  }
+]

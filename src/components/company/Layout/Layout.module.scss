@@ -18,3 +18,5 @@ caption,legend{font-size:0;line-height:0;visibility:hidden}
 input:focus,select:focus,textarea:focus{outline-width:thin}
 :global .skip_navi{position: absolute;width:1px;height:1px;overflow:hidden;font-size: 1px;white-space: nowrap;text-indent: 4px;line-height: 1px}
 :global .blind{overflow:hidden;position:absolute;width:1px;height:1px;margin:-1px;clip:rect(0 0 0 0)}
+
+.contents{margin-top:47px;padding:0 15px}

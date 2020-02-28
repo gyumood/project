@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 const Layout = ({ children, layoutType }) => (
 	<>
 		<LayoutHeader layoutType={layoutType} />
-		<div className={cx('box', { top: layoutType === 'top' })}>
+		<div className={cx('contents', { top: layoutType === 'top' })}>
 			<div className={cx('contents_area')}>
 				{children}
 			</div>
